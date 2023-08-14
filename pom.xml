@@ -6,7 +6,7 @@
 
   <groupId>bala</groupId>
   <artifactId>bala</artifactId>
-  <version>3.8.4-balasnapshot</version>
+  <version>3.0-SNAPSHOT</version>
 
   <name>bala</name>
   <!-- FIXME change it to the project's website -->
