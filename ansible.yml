@@ -1,4 +1,18 @@
-- hosts: all
+---
+- hosts: webservers 
+  become: True
   tasks:
-    - name: creating a container
-      shell: docker run -itd --name bala -p 8083:80 deadlybala123/nodeapp
+    - name: Install packages
+      yum:
+        name: "httpd"
+        state: "present"
+    - name: Start Apache server
+      service:
+        name: httpd
+        state: started
+        enabled: True
+    - name: Deploy static website
+      copy:
+        src: index.html
+        dest: /var/www/html/
+...
