@@ -1,24 +1,30 @@
+
 ---
 - name: Install Jenkins
-  hosts: dev
+  hosts: all
   become: yes
 
   tasks:
+    - name: installing java
+      yum:
+      pkg: java
+      state: present
+
     - name: Add Jenkins APT repository key
-      apt_key:
+      yum_key:
         url: https://pkg.jenkins.io/debian/jenkins.io.key
 
     - name: Add Jenkins APT repository
-      apt_repository:
+      yum_repository:
         repo: "deb http://pkg.jenkins.io/debian-stable binary/"
         state: present
 
     - name: Update package cache
-      apt:
-        update_cache: yes
+      yum:
+      update_cache: yes
 
     - name: Install Jenkins
-      apt:
+      yum:
         name: jenkins
         state: present
 
@@ -26,6 +32,6 @@
       systemd:
         name: jenkins
         enabled: yes
-
-
+      
+      
     
