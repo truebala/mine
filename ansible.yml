@@ -1,7 +1,9 @@
 ---
-hosts: all
-become: yes
-tasks:
-  - name: creating a container
-    shell: docker run -itd --name cont1 -p 8082:80 deadlybala123/nodeapp
+  hosts: all
+  become: yes 
+    - name: Install Git
+      package:
+        name: git
+        state: present
+
     
