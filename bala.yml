@@ -4,10 +4,10 @@
   become: yes 
 
   tasks:
-    - name: installing java
+    - name: install java
       yum:
-      name: java
-      state: persent
+        name: java
+        state: persent
       
     - name: Install required packages
       yum:
