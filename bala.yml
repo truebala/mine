@@ -4,11 +4,7 @@
   become: yes 
 
   tasks:
-    - name: install java
-      yum:
-        name: java
-        state: persent
-      
+    
     - name: Install required packages
       yum:
         name: "{{ item }}"
