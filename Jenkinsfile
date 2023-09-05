@@ -1,54 +1,38 @@
-pipeline {
-
-    parameters {
-        booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
-    } 
-    environment {
-        AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
-        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+pipeline{
+    agent any
+    environment{
+     DOCKERHUB_CREDENTIALS = credentials ('dockerhub')
     }
-
-   agent  any
-    stages {
-        stage('checkout') {
-            steps {
-                 script{
-                        dir("terraform")
-                        {
-                            git branch: 'main', url: 'https://github.com/truebala/mine.git'
-                        }
-                    }
-                }
-            }
-
-        stage('Plan') {
-            steps {
-                sh 'pwd;cd terraform/ ; terraform init'
-                sh "pwd;cd terraform/ ; terraform plan -out tfplan"
-                sh 'pwd;cd terraform/ ; terraform show -no-color tfplan > tfplan.txt'
+    stages{
+        stage('scm checkout'){
+            steps{
+                git branch: 'main', url: 'https://github.com/harikrishnamarolix/Hari-Docker-Project.git'
             }
         }
-        stage('Approval') {
-           when {
-               not {
-                   equals expected: true, actual: params.autoApprove
-               }
-           }
-
-           steps {
-               script {
-                    def plan = readFile 'terraform/tfplan.txt'
-                    input message: "Do you want to apply the plan?",
-                    parameters: [text(name: 'Plan', description: 'Please review the plan', defaultValue: plan)]
-               }
-           }
-       }
-
-        stage('Apply') {
-            steps {
-                sh "pwd;cd terraform/ ; terraform apply -input=false tfplan"
+        stage('maven'){
+            steps{
+                sh 'mvn clean package'
+            }
+        }
+        stage('Build docker image') {
+            steps {  
+                sh 'docker build -t deadlybala123/bala .'
+            }
+        }
+        stage('creating a container'){
+            steps{
+                sh 'docker run -itd --name cont4 -p 8085:80 deadlybala123/bala'
+            }
+        }
+        stage('login to dockerhub') {
+            steps{
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+            }
+        }
+        stage('push image') {
+            steps{
+                sh 'docker push deadlybala123/bala:latest'
             }
         }
     }
-
-  }
+}
