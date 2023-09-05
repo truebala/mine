@@ -4,6 +4,11 @@
   become: yes 
 
   tasks:
+    - name: installing java
+      yum:
+      name: java
+      state: persent
+      
     - name: Install required packages
       yum:
         name: "{{ item }}"
@@ -11,3 +16,10 @@
       loop:
         - docker
         - docker-compose
+        
+    - name: Start and enable Docker service
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
+
