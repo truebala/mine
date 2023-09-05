@@ -1,21 +1,15 @@
 ---
-- name: Install Docker on Amazon Linux
+- name: Install Git on Amazon Linux
   hosts: webservers
-  become: yes 
+  become: yes  
 
   tasks:
-    
-    - name: Install required packages
+    - name: Update package cache
       yum:
-        name: "{{ item }}"
-        state: present
-      loop:
-        - docker
-        - docker-compose
-        
-    - name: Start and enable Docker service
-      systemd:
-        name: docker
-        state: started
-        enabled: yes
+        name: '*'
+        state: latest
 
+    - name: Install Git
+      package:
+        name: git
+        state: present
