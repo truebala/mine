@@ -1,8 +1,15 @@
 ---
-- hosts: webservers
-  become: yes
+- name: Install Git on Amazon Linux
+  hosts: webservers
+  become: yes  # This allows Ansible to use sudo
+
   tasks:
-  - name: installing git
-    yum: 
-    name: git
-    state: present
+    - name: Update package cache
+      yum:
+        name: '*'
+        state: latest
+
+    - name: Install Git
+      package:
+        name: git
+        state: present
