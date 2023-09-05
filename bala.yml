@@ -1,29 +1,7 @@
 ---
-- name: Install Jenkins on Amazon Linux
-  hosts: all
-  connection: ssh
-  become: yes
-
-  tasks:
-    - name: Install Java OpenJDK
-      yum:
-        name: java-1.8.0-openjdk
-        state: present
-
-    - name: Add Jenkins repository
-      yum_repository:
-        name: jenkins
-        baseurl: http://pkg.jenkins.io/redhat-stable
-        gpgcheck: yes
-        gpgkey: https://pkg.jenkins.io/redhat-stable/jenkins.io.key
-        enabled: yes
-
-    - name: Install Jenkins
-      yum:
-        name: jenkins
-        state: present
-
-    - name: Start Jenkins service
-      systemd:
-        name: jenkins
-        enabled: yes
+hosts: dev
+tasks:
+  - name: installing git
+    yum:
+    name: git
+    state: present
