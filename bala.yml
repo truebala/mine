@@ -1,15 +1,1 @@
----
-- name: Install Git on Amazon Linux
-  hosts: webservers
-  become: yes  
 
-  tasks:
-    - name: Update package cache
-      yum:
-        name: '*'
-        state: latest
-
-    - name: Install Git
-      package:
-        name: git
-        state: present
