@@ -1,15 +1,13 @@
 ---
-- name: Install Git on Amazon Linux
+- name: Install Docker on Amazon Linux
   hosts: webservers
-  become: yes  # This allows Ansible to use sudo
+  become: yes 
 
   tasks:
-    - name: Update package cache
+    - name: Install required packages
       yum:
-        name: '*'
-        state: latest
-
-    - name: Install Git
-      package:
-        name: git
+        name: "{{ item }}"
         state: present
+      loop:
+        - docker
+        - docker-compose
