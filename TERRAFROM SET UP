@@ -1,0 +1,49 @@
+Terrafrom set up:
+--------------------------------------
+steps:-1 Go to releases.hashicorp.com 
+step:-2 : Go to Terraform
+step:-3 : copy the arm64.zip file from terraform ( https://releases.hashicorp.com/terraform/1.1.9/terraform_1.1.9_linux_arm64.zip )
+
+Ec2-Set up:
+-----------------------------------------------------------------------------------------------
+wget https://releases.hashicorp.com/terraform/1.1.9/terraform_1.1.9_linux_arm64.zip                                                 
+unzip terraform_1.1.9_linux_arm64.zip
+mv terraform /usr/local/bin
+terraform version
+mkdir terraform
+cd terrafrom
+touch main.tf
+vim main.tf
+
+HOW TO WRITE A TERRAFORM FILE:
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+** Basically the terraform file contains the three block
+ 1st block:- In first block we always provide the details of the provider and iam user and region
+                                                  
+example:- 
+provider "aws" {
+region = "us-east-1"
+access_key = "AKIAXFFFWQB2OFJDC4KU"
+secret_key = "XJBN4WwXgT4YRFtL0v8aRAS97zj/8miYXTNOxGaG"
+}                                             
+                                                  
+2nd block:- In second block we always provide the details of the resource
+resource "aws_instance" "example" {
+ami = "ami-01c647eace872fc02"
+instance_type = "t2.micro"
+}
+
+                                                  
+TERRAFROM LIFE CYCLE:-
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+** terraform init (it is used to initialize terraform and along with its plugins)
+                                                  
+** terraform plan (it is used to preview the changes)
+                                                  
+** terraform apply (it will apply the changes and created the resources as per our tf file)
+
+                                                  
+                                                 
+                                                  
