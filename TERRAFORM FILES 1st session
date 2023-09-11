@@ -129,4 +129,25 @@ type = bool
 default = false
 }
 
+To create multiple iam users using terraform file:-
+provider "aws" {
+region = "us-west-2"
+}
+
+/*resource "aws_instance" "example" {
+ami = "ami-0b2b4f610e654d9ac"
+instance_type = "t2.micro"
+}*/
+
+resource "aws_iam_user" "example" {
+count = length(var.user_names)
+name = var.user_names[count.index]
+}
+
+variable "user_names" {
+description = "this code is used to create iam users"
+type = list(string)
+default = [ "bal1", "bal2", "bal3" ]
+}
+
 
