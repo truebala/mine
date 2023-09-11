@@ -94,5 +94,39 @@ description = "This is for multiple instances"
 type = number
 default = 2
 }
+creating a instance using varibales,count,and public ip
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+provider "aws"{
+region = "us-west-2"
+}
+
+resource "aws_instance" "example" {
+ami = "ami-0b2b4f610e654d9ac"
+instance_type = var.instance_type
+count = var.instance_count
+associate_public_ip_address = var.enable_public_ip
+tags = {
+Name = "MB"
+}
+}
+
+variable "instance_type" {
+description = "the type of the instance"
+type = string
+default = "t2.micro"
+}
+
+variable "instance_count" {
+description = "this is for creating ec2 instances"
+type = number
+default = 1
+}
+
+variable "enable_public_ip"{
+description = "this is for enable public ip"
+type = bool
+default = false
+}
 
 
