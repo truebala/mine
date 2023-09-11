@@ -1,0 +1,72 @@
+SOME BASIC DETAILS FOR TERRAFORM:-
+---------------------------------------------------------------
+---------------------------------------------------------------
+** Terraform is an open source "Infrastructure as a code Tool" created by hashicorp 
+
+** A declarative code tool, Terraform enables the developers to use high-level configuration
+language called HCL ("Hashicorp configuration language") to describe the desired "End-State"
+cloud or on-premises infrastructure for running an application
+
+** Terraform uses a simple-syntax, can provision infrastructure across multiple clouds
+
+IAAC:-
+---------------------------------------------------------------
+** Infrastructure as a code (IAAC) is the managing and provisioning of infrastructure
+through code instead of through manual processes
+
+** With IaC, configuration files are created that contain your infrastructure specifications
+which makes it easier to edit and distribute configuration.
+
+**IaC allows you to meet the growing needs of infrastructure changes in a scalable and trackable 
+manner
+
+** The insfrastructure terraform could handle low-level elements like Networking, storage
+compute instances, also high-level elements like SaaS features,DNS entries etc..
+
+** It is famous for easy to use but not true for complex environments, it is not easy.
+
+WHY:-
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+** It is a service orchestration tool (chef, ansible and puppet are configuration tools)
+
+** Declarative code('it can be changable')
+
+** imputable code('we can't able to change the code once its written')
+
+CLOUD ALTERNATIVES:-
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+
+** AWS --> CloudFormation Templates (JSON/YAML)
+
+** AZURE --> ARM Templates (JSON)
+
+** TERRAFORM --> AWS (IOL), AZURE(BP), GCP(HP), VMWARE
+
+** FUEL --> CODE
+
+ADVANTAGES:-
+------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+** Terraform is having the readable code
+
+** Dry run
+
+** importing of resources is easy
+
+** Creating of multiple resources
+
+** can create modules for repeatable code
+
+DISADVANTAGES:-
+--------------------------------------------------------------------------------------------
+____________________________________________________________________________________________
+
+** IT IS 3RD PARTY TOOL. IT TAKES TIME TO ACCOMODATE NEW SERVICES.
+
+**BUGS
+
+
+
+
