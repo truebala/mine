@@ -58,6 +58,13 @@ tags = {
 Name = "marolix"
 }
 }
+
+variable "instance_count" {
+description = "this is for creating ec2 instances"
+type = number
+default = 2
+}
+
 How to give enable our ip address using the boolean ?
 -------------------------------------------------------------
 -------------------------------------------------------------
@@ -87,3 +94,5 @@ description = "This is for multiple instances"
 type = number
 default = 2
 }
+
+
