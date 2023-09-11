@@ -59,6 +59,10 @@ TERRAFROM LIFE CYCLE:-
                                                   
 ** terraform apply (it will apply the changes and created the resources as per our tf file)
 
+** terraform destroy (it is used to delete the resource what we created)
+
+
+
                                                   
                                                  
                                                   
