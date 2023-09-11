@@ -2,14 +2,88 @@ Ec2 instance creation using terraform file:-
 -----------------------------------------------------------------
 -----------------------------------------------------------------
 provider "aws" {
-region = "us-east-1"
-access_key = "AKIAXFFFWQB2OFJDC4KU"
-secret_key = "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"
+region = "us-west-2"
+access_key = "AKIAXFFFWQB2EUAXUNNC"
+secret_key = "KuJlmYKesNLWG4Y4flUdQLqWyTz63h36JgJkUMOx"
 }
 
 resource "aws_instance" "example" {
-ami = "ami-01c647eace872fc02"
+ami = "ami-0b2b4f610e654d9ac"
 instance_type = "t2.micro"
+
+tags = {
+Name = "bala"
+}
 }
 
+How to define a variable block in terraform file
+---------------------------------------------------------------
+---------------------------------------------------------------
+provider "aws" {
+region = "us-west-2"
+access_key = "AKIAXFFFWQB2EUAXUNNC"
+secret_key = "KuJlmYKesNLWG4Y4flUdQLqWyTz63h36JgJkUMOx"
+}
 
+resource "aws_instance" "example" {
+ami = "ami-0b2b4f610e654d9ac"
+instance_type = var.instance_type
+
+tags = {
+Name = "hari"
+}
+}
+
+variable  "instance_type" {
+description = "This is for giving instance type"
+type = string
+default = "t2.micro"
+}
+
+TO create multiple instance at a time 
+---------------------------------------------------------------
+---------------------------------------------------------------
+provider "aws" {
+region = "us-west-2"
+access_key = "AKIAXFFFWQB2EUAXUNNC"
+secret_key = "KuJlmYKesNLWG4Y4flUdQLqWyTz63h36JgJkUMOx"
+}
+
+resource "aws_instance" "example" {
+ami = "ami-0b2b4f610e654d9ac"
+instance_type = "t2.micro"
+count = var.instance_count
+
+tags = {
+Name = "marolix"
+}
+}
+How to give enable our ip address using the boolean ?
+-------------------------------------------------------------
+-------------------------------------------------------------
+provider "aws" {
+region = "us-west-2"
+access_key = "AKIAXFFFWQB2EUAXUNNC"
+secret_key = "KuJlmYKesNLWG4Y4flUdQLqWyTz63h36JgJkUMOx"
+}
+
+resource "aws_instance" "example" {
+ami = "ami-0b2b4f610e654d9ac"
+instance_type = "t2.micro"
+associate_public_ip_address = var.enable_public_ip 
+
+tags = {
+Name = "marolix"
+}
+}
+
+variable  "enable_public_ip" {
+description = "This is for enabling adress"
+type = bool  
+default = false
+}
+variable  "instance_count" {
+description = "This is for multiple instances"
+type = number
+default = 2
+}
