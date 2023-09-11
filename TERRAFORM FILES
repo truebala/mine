@@ -1,1 +1,15 @@
+Ec2 instance creation using terraform file:-
+-----------------------------------------------------------------
+-----------------------------------------------------------------
+provider "aws" {
+region = "us-east-1"
+access_key = "AKIAXFFFWQB2OFJDC4KU"
+secret_key = "XJBN4WwXgT4YRFtL0v8aRAS97zj/8miYXTNOxGaG"
+}
+
+resource "aws_instance" "example" {
+ami = "ami-01c647eace872fc02"
+instance_type = "t2.micro"
+}
+
 
