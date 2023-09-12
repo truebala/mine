@@ -1,0 +1,22 @@
+Basically there are two type of branching strategies in git and they are
+
+1. git model branching strategy
+2. feature branching strategy
+
+** git model branching strategy:-
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+yes ***, currently we are using feauture branching strategy in our organization
+and master and integration branches are the long lived branches 
+and master branch is always to the production commit and the total code is
+available on the intergration branch and whenever if i want to change a feature
+then i will create a branch from integration and while developing a every commit
+we are developing a cicd and tracking whether the cicd is succeed in the development when its 
+success in the development then the developer with rise a PR(pull request) while rising
+pr also we are keeping some conditions whether the code is sucess in development or not
+and if it is success then only i will rise a PR(pull request) and after rising PR
+everyone will check the changes and approving it for the merging 
+so then the commit which are move to integration and tested in all environments
+like QA,PRE-PODUCTION,AND perfomance and all this got success and then we will move
+into the production deployment,and in production also we will check the code whether it
+is success or not if it is success then only we will move cicd forward 
