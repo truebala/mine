@@ -1,0 +1,78 @@
+##creating the instance using variable files:-
+----------------------------------------------
+step:-1 -->
+write one simple main.tf file 
+provider "aws"{
+region = "us-east-1"
+}
+resource "aws_instance" "example" {
+ami = "agjnaanfeaaae9u-01" #we need to give as per our region
+instance_type = var.instance_type
+
+step:- 2 -->
+write one variable file with the name vim variable.tf
+variable "instance_type" {
+}
+step:-3 -->
+write one vars file with the name vim terraform.vars 
+instance_type = "t2.micro" 
+
+##creating ec2 instances with multiple regions using three variable files vim varibale.tf and vim stage.tfvars and vim production.tfvars
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+main.tf file
+
+provider "aws" {
+region = "us-west-2"
+}
+
+resource "aws_instance" "example" {
+ami = "amfann103-01"
+instance_type = var.instance_type
+tags = {
+Name = var.environment_name 
+}
+---------------------------------------------------------------------------------
+variable.tf file -->
+----------------------------------------------------------------------------------
+variable "instance_type" {
+}
+variable "environment_name" {
+} 
+---------------------------------------------------------------------------------
+vim stage.tfvars file -->
+---------------------------------------------------------------------------------
+instance_type = "t2.micro"
+
+environment_name = "stage"
+----------------------------------------------------------------------------------
+vim production.tf file -->
+instance_type = "t2.medium"
+
+environment_name = "production"
+
+creating the vpc's and subnets using terraform file:-
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+provider "aws" {
+region = "us-west-2"
+}
+
+locals {
+staging_env = "staging"
+}
+
+resource "aws_vpc" "staging-vpc" {
+cidr_block = "10.0.0.0/16"
+tags = {
+Name = "$(local.staging_env)-vpc-tag"
+}
+}
+
+resource "aws_subnet" "staging-subnet" {
+vpc_id = aws_vpc.staging-vpc.id
+cidr_block = "10.0.0.0/16"
+tags = {
+Name = "$(local.staging_env)-subnet-tag"
+}
+}
