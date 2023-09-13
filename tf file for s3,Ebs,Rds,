@@ -1,0 +1,29 @@
+how to create s3 bucket using terrraform code :
+------------------------------------------------
+------------------------------------------------
+provider "aws" {
+region = "us-east-1"
+}
+resource "aws_s3_bucket" "example" {
+tags = {
+Name = "fsakhalf" #Here we need to give our bucket name as per our wish
+}
+}
+
+
+How to create ebs volumes using terraform code:
+-------------------------------------------------
+-------------------------------------------------
+provider "aws" {
+region = "us-east-1"
+}
+
+resource "aws_ebs_volume" "example" {
+availability_zone = "us-east-1a"
+size = 40
+tags = {
+Name = "bala"
+}
+}
+
+
