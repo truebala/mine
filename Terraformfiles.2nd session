@@ -76,3 +76,22 @@ tags = {
 Name = "$(local.staging_env)-subnet-tag"
 }
 }
+How to see the public ip in the terminal then we will write below file:
+-------------------------------------------------------------------------
+-------------------------------------------------------------------------
+
+provider "aws" {
+  region = "us-west-2"
+}
+
+resource "aws_instance" "example" {
+  ami           = "ami-0ccea833bf267252a"
+  instance_type = "t2.micro"
+  tags = {
+    Name = "one2"
+  }
+}
+
+output "my_console_output" {  #Here we can mention anything as per our wish Here are some examples  # output "private_ip"
+value = aws_instance.example.public_ip                                                              #nvalue = aws_instance.example.Public_ip
+}
