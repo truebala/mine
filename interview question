@@ -1,0 +1,39 @@
+1.what is devops ? Day -1
+--------------------------------
+Devops is a process that makes our application to deliver to the client in a quicker manner by ensuring
+that there is a proper automation,testing,quality and monitoring takes place this is known as devops
+why devops ?
+--------------------------------
+it will improve your application delivery and also done need of multiple teams to evolve in this process
+the only devops will handle testing,monitoring,and quality check 
+before 10 years we dont have devops enginners in the market and we have multiple teams to do this things
+and the teams are 
+*system administors
+* build and release enginner
+* testers
+instead of having these all teams we have devops engineers to do all this things in a quick manner
+##########################################################################################################################################
+Day -2 
+3. what is soft development life cycle (SDLC) ?
+The software development is basically having the six stages that are
+planing : here is the first step of sdlc that we getting the inputs from the customer and businnes analyst are responsible for this 
+defining : defining is nothing but the whatever the inputs we got from the client we are going to do that in documentary
+designing : and the designing are of two type low level design and high level designing where we can design our application in this step
+building : building is nothing but the here the developers will write a code according to the planning and defining and designing and build the application and deployed in their own laptops or systems
+testing : here is the main step in sdlc that while getting the code from the developers the testers will test the application in the local server 
+deployment : and finally the deployment will be done in the production or pre-production
+and as a devops enginner u will be evaluate in three stages building,testing,and deploying the application through automation
+and as a deveops enginner we wont involve in any steps of sdlc but we will fasten the code to the client
+#################################################################################################################################################
+Day-3
+4.what is a server ?
+A server is nothing but the where our application is going to deployed is known as server
+what is hyper visor ?
+hyper visor is a software that can install virtual machines on your bare metal or physical servers
+what is virtualization ?
+Virtualization is nothing but a we can create a virtual machines inside our physical server using logical isolation 
+and for do this we can use hypersors and some most popular hypervisors are vmware and xen
+################################################################################################################################################
+Day-4
+
+
