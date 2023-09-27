@@ -1,8 +1,9 @@
 # mine
 my file
 <h1 align="center">Hi 👋, I'm Survipalli Bala chandrudu</h1>
-<h3 align="center">A passionate devops engineer from India</h3>
-<img align="right" alt="coding" width="400" src="
+<h3 align="center">A passionate software engineer from India</h3>
+<img align="right" alt="coding" width="400" src="![Uploading image.png…]"
+
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=truebala" alt="truebala" /></a> </p>
 
 - 🔭 I’m currently working on [e-commerce-project](https://github.com/truebala/E-Commerce.git)
