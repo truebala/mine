@@ -2,7 +2,8 @@
 my file
 <h1 align="center">Hi 👋, I'm Survipalli Bala chandrudu</h1>
 <h3 align="center">A passionate software engineer from India</h3>
-<img align="right" alt="coding" width="400" src=""
+<img align="right" alt="coding" width="400" src="![image](https://github.com/truebala/mine/assets/131427463/2251bb44-ad19-415b-b41a-fce1cb5818e0)
+"
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=truebala" alt="truebala" /></a> </p>
 
